@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  main:
+    image: siyuan:0.0.1
+    command: ['--workspace=/siyuan/workspace/', '--accessAuthCode=123456']
+    ports:
+      - 6806:6806
+    volumes:
+      - /siyuan/workspace:/siyuan/workspace
+    restart: unless-stopped
+    environment:
+      # A list of time zone identifiers can be found at https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+      - TZ=Asia/Shanghai
+      - PUID=1000  # Customize user ID
+      - PGID=1000  # Customize group ID
